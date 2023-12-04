@@ -1,0 +1,21 @@
+.grid__tile {
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+
+.grid__tile--empty {
+  background-color: white;
+}
+
+.grid__tile--snake-body {
+  background-color: greenyellow;
+}
+
+.grid__tile--snake-head {
+  background-color: green;
+}
+
+.grid__tile--snake-apple {
+  background-color: red;
+}

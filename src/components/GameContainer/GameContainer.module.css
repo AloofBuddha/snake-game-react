@@ -1,0 +1,6 @@
+.gameContainer {
+  display: flex;
+  border: 2px solid black;
+  width: calc(var(--gridSize) * 32px);
+  height: calc(var(--gridSize) * 32px);
+}

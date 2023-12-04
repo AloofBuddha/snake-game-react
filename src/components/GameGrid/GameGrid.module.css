@@ -1,0 +1,5 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--gridSize), auto);
+  grid-template-rows: repeat(var(--gridSize), auto);
+}
