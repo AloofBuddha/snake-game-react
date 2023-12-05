@@ -4,7 +4,7 @@ import { useAppSelector } from "../../redux/hooks";
 import {
   selectGameStatus,
   GameStatusType,
-} from "../../redux/slices/gameStatusSlice";
+} from "../../redux/slices/gameStateSlice";
 import styles from "./GameContainer.module.css";
 
 export default function GameContainer() {

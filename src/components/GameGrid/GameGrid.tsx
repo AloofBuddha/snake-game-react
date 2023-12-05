@@ -1,14 +1,10 @@
-import { useState } from "react";
-import { gridTemplateStyle, resetGameState } from "../../GameUtils";
-import styles from "./GameGrid.module.css";
+import { useAppSelector } from "../../redux/hooks";
+import { selectGrid } from "../../redux/slices/gameStateSlice";
 import GridTile from "../GridTile/GridTile";
+import styles from "./GameGrid.module.css";
 
 export default function GameGrid() {
-  const [gameState, setGameState] = useState(resetGameState);
-
-  const { grid } = gameState;
-
-  console.log(gameState);
+  const grid = useAppSelector(selectGrid);
 
   return (
     <>

@@ -1,13 +1,13 @@
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { startGame } from "../../redux/slices/gameStatusSlice";
+import { startGame } from "../../redux/slices/gameStateSlice";
 import {
-  selectCurrentGameScore,
+  selectScore,
   selectHighScore,
-} from "../../redux/slices/scoreSlice";
+} from "../../redux/slices/gameStateSlice";
 import styles from "./MainMenu.module.css";
 
 export default function GameContainer() {
-  const mostRecentScore = useAppSelector(selectCurrentGameScore);
+  const mostRecentScore = useAppSelector(selectScore);
   const highScore = useAppSelector(selectHighScore);
   const dispatch = useAppDispatch();
 

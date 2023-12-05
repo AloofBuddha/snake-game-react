@@ -1,0 +1,6 @@
+.currentScoreOverlay {
+  display: flex;
+  position: absolute;
+  width: inherit;
+  justify-content: center;
+}

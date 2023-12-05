@@ -1,5 +1,5 @@
 import styles from "./GridTile.module.css";
-import { TileType } from "../../GameUtils";
+import { TileType } from "../../redux/slices/gameStateSlice";
 
 interface propTypes {
   tileType: TileType;
