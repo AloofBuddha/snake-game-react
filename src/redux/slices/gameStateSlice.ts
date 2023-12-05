@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk, Draft } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import GridTile from "../../components/GridTile";
 
 // modifiable
-export const GRID_SIZE = 15;
+const GRID_SIZE = 15;
 
 export enum GameStatusType {
   mainMenuState,
@@ -25,7 +24,7 @@ export enum Direction {
   Left,
 }
 
-export type Coordinates = [number, number];
+type Coordinates = [number, number];
 
 export interface GameState {
   score: number;
@@ -112,7 +111,6 @@ function paintFrame(state: GameState) {
 }
 
 const initialState: GameState = initializeGameState();
-paintFrame(initialState);
 
 // Thunk for working with tick
 export const tick = createAsyncThunk(
@@ -174,6 +172,8 @@ function checkforAppleCollision(state: Draft<GameState>) {
 
   // new apple
   state.apple = getRandomEmptyCoordinates(state);
+
+  state.score += 1;
 }
 
 export const gameStateSlice = createSlice({
@@ -182,22 +182,7 @@ export const gameStateSlice = createSlice({
   reducers: {
     startGame: (state) => {
       state.status = GameStatusType.playingState;
-    },
-    endGame: (state) => {
-      state.status = GameStatusType.endState;
-    },
-    restartGame: (state) => {
-      state.status = GameStatusType.playingState;
-    },
-    returnToMenu: (state) => {
-      state.status = GameStatusType.mainMenuState;
-    },
-    incrementScore: (state) => {
-      state.score += 1;
-
-      if (state.score >= state.highScore) {
-        state.highScore += 1;
-      }
+      paintFrame(state);
     },
   },
   extraReducers: (builder) => {
@@ -210,8 +195,7 @@ export const gameStateSlice = createSlice({
   },
 });
 
-export const { incrementScore, startGame, endGame, restartGame, returnToMenu } =
-  gameStateSlice.actions;
+export const { startGame } = gameStateSlice.actions;
 
 export const selectGrid = (state: RootState) => state.grid;
 

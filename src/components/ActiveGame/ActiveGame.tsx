@@ -11,6 +11,7 @@ export default function ActiveGame() {
   // kick off the game timer
   useEffect(() => {
     const delayTimeMS = 500;
+
     const intervalHandler = setInterval(
       () => dispatch(tick(delayTimeMS)),
       delayTimeMS
